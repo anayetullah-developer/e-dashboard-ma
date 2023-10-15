@@ -2,26 +2,57 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+.custom_scrollbar::-webkit-scrollbar {
+  width: 8px;
+  background-color: transparent;
 }
 
-@media (prefers-color-scheme: dark) {
+.custom_scrollbar::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  border-radius: 40px;
+}
+
+.sidebar:hover .custom_scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgb(206, 206, 206);
+}
+
+.custom_scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgb(228, 228, 228);
+}
+
+@layer base {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --bg: rgb(255, 255, 255);
+    --fg: rgb(27, 25, 31);
+    --primary: 124 58 237;
+    --primary-dark: rgb(26 1 68);
+    --sidebar-width: 260px;
+  }
+
+  *,
+  *::before,
+  *::after {
+    @apply box-border;
+  }
+
+  body {
+    @apply bg-bg text-fg text-base leading-normal;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@layer components {
+  .dashboard_sidebar_link {
+    @apply flex items-center px-7 py-3 leading-normal text-opacity-75 hover:text-opacity-100 hover:bg-gradient-to-r hover:from-primary/80 hover:to-transparent transition-colors duration-75 cursor-pointer font-normal text-white;
+  }
+
+  .dashboard_sidebar_link_active {
+    @apply text-opacity-100 bg-gradient-to-r from-primary/80 to-transparent;
+  }
+
+  .dropdown_container {
+    @apply relative max-w-full;
+  }
+  .dropdowon_content {
+
+  }
 }
