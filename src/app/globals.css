@@ -49,10 +49,7 @@
     @apply text-opacity-100 bg-gradient-to-r from-primary/80 to-transparent;
   }
 
-  .dropdown_container {
-    @apply relative max-w-full;
-  }
-  .dropdowon_content {
-
+  .dashboard_sidebar_dropdown {
+    @apply bg-gradient-to-r from-primary/80 to-transparent overflow-hidden;
   }
 }
